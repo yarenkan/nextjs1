@@ -30,7 +30,7 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
 
   useEffect(() => {
     if (session?.user) {
-      if (!path.includes('chat') && messages.length === 1) {
+      if (path && !path.includes('chat') && messages.length === 1) {  // path'in null olup olmadığını kontrol edin
         window.history.replaceState({}, '', `/chat/${id}`)
       }
     }
